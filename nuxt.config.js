@@ -59,7 +59,7 @@ export default {
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {
-    dir: `jainsongs-content`,
+    dir: `content-jainsongs`,
     markdown: {
       remarkPlugins: [
         ['remark-breaks'],
