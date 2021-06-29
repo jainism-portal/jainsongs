@@ -40,7 +40,13 @@ export default {
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+  components: [
+    '~/components/atoms',
+    '~/components/molecules',
+    '~/components/organisms',
+    '~/components/templates',
+    '~/components/global',
+  ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
