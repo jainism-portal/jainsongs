@@ -1,0 +1,125 @@
+%margin-shared
+  @apply tw-my-3 md:tw-my-6
+
+.nuxt-content
+  // @apply tw-select-none
+  @apply tw-text-gray-600 tw-text-lg md:tw-text-xl tw-text-justify
+
+  h2, h3, h4, h5, h6, p, ul, ol, table, details
+    @extend %margin-shared
+
+  h2
+    @apply tw-text-left
+    @apply tw-text-pink-800 tw-text-2xl md:tw-text-4xl tw-bg-gradient-to-r tw-from-white tw-to-pink-50 tw-rounded-md tw-py-1
+
+  h3
+    @apply tw-text-left
+    @apply tw-text-gray-800 tw-font-medium tw-text-xl md:tw-text-3xl tw-pb-1 tw-border-b-2 tw-border-gray-300
+
+  h4
+    @apply tw-text-left
+    @apply tw-text-green-800 tw-font-medium tw-text-lg md:tw-text-2xl tw-pb-1 tw-border-b-2 tw-border-gray-300
+
+  p
+    @apply md:tw-leading-relaxed
+
+  a
+    @apply tw-underline
+  //   @apply tw-text-linkblue hover:tw-text-pink-900
+  //   @apply tw-bg-gradient-to-b tw-from-white tw-via-white tw-to-blue-100 hover:tw-to-pink-200
+    // &:not([href^="/blog/"]) // to find 404 links. TODO: remove it after fixing the links
+    //   @apply tw-text-red-500
+    // &[href^="http"]
+    //   @apply tw-text-linkblue hover:tw-text-pink-900
+  ul, ol
+    @apply tw-pl-8
+
+  ul
+    @apply tw-list-disc
+
+  ol
+    @apply tw-list-decimal
+
+  li
+    @apply sm:tw-leading-relaxed
+    @apply tw-my-1.5
+    &::marker
+      @apply tw-text-pink-700
+
+  ul li ul li:first-child
+    @apply tw--mt-2
+
+  ol li ul li:first-child
+    @apply tw--mt-2
+
+  ul li ol li:first-child
+    @apply tw--mt-2
+
+  ol li ol li:first-child
+    @apply tw--mt-2
+
+  // ul > li > ul > li
+  // list-style-type: circle
+  ul > li > ul
+    list-style-type: disc
+
+  ul > li > ol
+    list-style-type: lower-roman
+
+  ol > li > ul
+    list-style-type: disc
+
+  ol > li > ol
+    list-style-type: lower-roman
+
+  ul > li > ul > li > ul
+    list-style-type: circle
+
+  ol > li > ul > li > ul
+    list-style-type: circle
+
+  ul > li > ol > li > ul
+    list-style-type: circle
+
+  ul > li > ul > li > ul
+    list-style-type: circle
+
+  ul > li > ul > li > ol
+    list-style-type: lower-alpha
+
+  ol > li > ul > li > ol
+    list-style-type: lower-alpha
+
+  ul > li > ol > li > ol
+    list-style-type: lower-alpha
+
+  ul > li > ul > li > ol
+    list-style-type: lower-alpha
+
+  img
+    @apply tw-mt-6 tw-mx-auto tw-rounded-md
+
+  hr
+    @apply tw-my-4 tw-border-2 tw-bg-gray-500
+
+  table
+    @apply tw-border-collapse tw-border tw-border-gray-500
+
+  th
+    @apply tw-border tw-border-gray-600
+    @apply tw-p-2
+    @apply tw-bg-yellow-50
+
+  td
+    @apply tw-border tw-border-gray-500
+    @apply tw-p-2
+
+  details
+    ::marker
+      @apply tw-text-yellow-600
+
+  summary
+    @apply tw-px-2 md:tw-px-4
+    @apply tw-py-2 tw-cursor-pointer hover:tw-shadow-md tw-rounded
+    @apply tw-border tw-border-yellow-200
+    @apply tw-bg-gradient-to-r tw-from-white tw-to-yellow-50 tw-text-yellow-800 hover:tw-bg-gradient-to-b
