@@ -52,7 +52,7 @@ export default {
   buildModules: [
     '@nuxtjs/tailwindcss',
     // '@nuxt/image',
-    // '@nuxtjs/vuetify', // https://vuetifyjs.com/en/getting-started/installation/#nuxt-install
+    '@nuxtjs/vuetify', // https://vuetifyjs.com/en/getting-started/installation/#nuxt-install
     "@nuxtjs/svg"
   ],
 
@@ -62,6 +62,13 @@ export default {
     '@nuxt/content',
     // '@nuxtjs/sitemap'
   ],
+
+  vuetify: {
+    customVariables: ['~/assets/style/themes/vuetify-variables.sass'],
+    optionsPath: '~/plugins/vuetify.js',
+    defaultAssets: false,
+    treeShake: process.env.NODE_ENV === 'production'
+  },
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {

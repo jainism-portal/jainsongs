@@ -7,7 +7,7 @@ export default {
       lg: 1280,
     },
   },
-  // lang: {},
+  lang: false,
   rtl: false,
   theme: {
     disable: true,
@@ -15,9 +15,9 @@ export default {
     //   anchor: '#fff',
     // }
   },
-  // icons: {
-  //   iconfont: 'mdi'
-  // },
+  icons: {
+    iconfont: 'mdiSvg'
+  },
   // font: {
   //   family: "'Open Sans', sans-serif"
   // }
