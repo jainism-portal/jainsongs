@@ -1,5 +1,8 @@
 import { mdiOpenInNew } from "@mdi/js"; // For remark-external-links
 
+import _startcase from "lodash.startcase";
+import _kebabcase from "lodash.kebabcase"
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -107,6 +110,74 @@ export default {
       ],
     },
     liveEdit: false,
+  },
+
+  hooks: {
+    // 'content:file:beforeParse': (file) => {
+    //   if (file.extension == '.md') {}
+    // },
+    'content:file:beforeInsert': (document) => {
+      if (document.extension === '.md') {
+        // document.slug = _kebabcase(document.slug)
+
+        if (document.path.startsWith(`/music/`)) {
+
+          document.slugurl = document.dir.slice(7) // 7 for "/music/"
+
+          if (document.slug === `meta`) {
+            document.position = 0
+
+            document.title = document.title ? document.title : _startcase(document.slugurl)
+
+            document.seo = document.seo ? document.seo : {}
+            document.seo.title = document.seo.title ? document.seo.title : document.title
+            document.seo.description = document.seo.description ? document.seo.description : document.description
+
+            document.lang = document.lang ? document.lang : ['hi']
+            if (typeof document.lang === 'string') document.lang = [document.lang]
+            if (Array.isArray(document.lang)) {
+              document.language = document.lang.map(lang => {
+                let lan = new Intl.DisplayNames(['en'], { type: `language` }).of(lang)
+                // Manually change the codes that don't change
+                if (lan === 'mwr') lan = 'Marwari'
+                if (lan === 'mtr') lan = 'Mewari'
+                if (lan === 'raj') lan = 'Rajasthani'
+                return lan
+              })
+            }
+          }
+          if (document.slug !== `meta`) {
+            const slugScripts = ['Latn', 'Deva', 'Gujr', 'Cyrl', 'Beng', 'Mlym', 'Knda', 'Taml', 'Telu', 'Orya', 'Sinh', 'Newa']
+
+            const sanscriptSupported = ['Gujr', 'Beng', 'Mlym', 'Knda', 'Taml', 'Telu', 'Orya', 'Sinh', 'Newa']
+
+            document.slug = _startcase(document.slug) // Always capitalize the script
+
+            const slugIndex = slugScripts.indexOf(document.slug)
+            const isSlugCorrect = slugIndex === -1 ? false : true
+
+            document.position = isSlugCorrect ? slugIndex + 1 : 999
+
+            document.script = isSlugCorrect
+              ? new Intl.DisplayNames(['en'], { type: 'script' }).of(document.slug)
+              : new Intl.DisplayNames(['en'], { type: 'script' }).of('Deva')
+
+            if (document.autotrans || !document.text) {
+              function sanscriptName(slug) {
+                if (isSlugCorrect && sanscriptSupported.indexOf(slug) > -1) {
+                  let scriptName = ''
+                  scriptName = new Intl.DisplayNames(['en'], { type: 'script' }).of(slug).toLowerCase()
+                  if (scriptName === 'bangla') scriptName = 'bengali'
+                  if (scriptName === 'odia') scriptName = 'oriya'
+                  return scriptName
+                } else return null
+              }
+              document.sanscript = document.sanscript ? document.sanscript : sanscriptName(document.slug)
+            }
+          }
+        }
+      }
+    }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
