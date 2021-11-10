@@ -2,6 +2,7 @@ import { mdiOpenInNew } from "@mdi/js"; // For remark-external-links
 
 import _startcase from "lodash.startcase";
 import _kebabcase from "lodash.kebabcase"
+import { allScripts } from "./app/language";
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -147,9 +148,7 @@ export default {
             }
           }
           if (document.slug !== `meta`) {
-            const slugScripts = ['Latn', 'Deva', 'Gujr', 'Cyrl', 'Beng', 'Mlym', 'Knda', 'Taml', 'Telu', 'Orya', 'Sinh', 'Newa']
-
-            const sanscriptSupported = ['Gujr', 'Beng', 'Mlym', 'Knda', 'Taml', 'Telu', 'Orya', 'Sinh', 'Newa']
+            const slugScripts = allScripts
 
             document.slug = _startcase(document.slug) // Always capitalize the script
 
@@ -159,21 +158,29 @@ export default {
             document.position = isSlugCorrect ? slugIndex + 1 : 999
 
             document.script = isSlugCorrect
-              ? new Intl.DisplayNames(['en'], { type: 'script' }).of(document.slug)
-              : new Intl.DisplayNames(['en'], { type: 'script' }).of('Deva')
+              ? new Intl.DisplayNames(['en'], { type: 'script' }).of(document.slug).toLowerCase()
+              : new Intl.DisplayNames(['en'], { type: 'script' }).of('Deva').toLowerCase()
 
-            if (document.autotrans || !document.text) {
-              function sanscriptName(slug) {
-                if (isSlugCorrect && sanscriptSupported.indexOf(slug) > -1) {
-                  let scriptName = ''
-                  scriptName = new Intl.DisplayNames(['en'], { type: 'script' }).of(slug).toLowerCase()
-                  if (scriptName === 'bangla') scriptName = 'bengali'
-                  if (scriptName === 'odia') scriptName = 'oriya'
-                  return scriptName
-                } else return null
-              }
-              document.sanscript = document.sanscript ? document.sanscript : sanscriptName(document.slug)
-            }
+            document.autotrans = document.autotrans ? document.autotrans : true
+
+              // const sanscriptSupported = ['Gujr', 'Beng', 'Mlym', 'Knda', 'Taml', 'Telu', 'Orya', 'Sinh', 'Newa']
+
+            // if (document.autotrans) {
+            //   function sanscriptName(slug) {
+            //     if (isSlugCorrect && sanscriptSupported.indexOf(slug) > -1) {
+            //       let scriptName = ''
+            //       scriptName = new Intl.DisplayNames(['en'], { type: 'script' }).of(slug).toLowerCase()
+            //       if (scriptName === 'bangla') scriptName = 'bengali'
+            //       if (scriptName === 'odia') scriptName = 'oriya'
+            //       return scriptName
+            //     } else return null
+            //   }
+            //   document.sanscript = document.sanscript ? document.sanscript : sanscriptName(document.slug)
+            // }
+
+            // if (document.slug === 'Deva' || document.slug === 'Latn') {
+            //   document.title = document.title ? document.title : _startcase(document.slugurl)
+            // }
           }
         }
       }
