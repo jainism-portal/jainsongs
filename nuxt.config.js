@@ -66,12 +66,12 @@ export default {
     // '@nuxtjs/sitemap'
   ],
 
-  vuetify: {
-    customVariables: ['~/assets/style/themes/vuetify-variables.sass'],
-    optionsPath: '~/plugins/vuetify.js',
-    defaultAssets: false,
-    treeShake: process.env.NODE_ENV === 'production'
-  },
+  // vuetify: {
+  //   customVariables: ['~/assets/style/themes/vuetify-variables.sass'],
+  //   optionsPath: '~/plugins/vuetify.js',
+  //   defaultAssets: false,
+  //   treeShake: process.env.NODE_ENV === 'production'
+  // },
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {
