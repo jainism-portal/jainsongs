@@ -1,9 +1,10 @@
 ---
-title: सब बोलो मंत्र नवकार
+title: Sab Bolo Mantra Navkar, Mahima ro nahi Paar
+title_hi: सब बोलो मंत्र नवकार
 title_en: Everyone recite Navakar Mantra
 description: 
 
-meta:
+seo:
   title:
   description: 
   keywords:
@@ -46,7 +47,7 @@ label:
 
 #######################
 
-external:
+links:
   youtube:
   gaana:
 
