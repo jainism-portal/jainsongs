@@ -1,13 +1,19 @@
 <template>
-  <v-app>
+  <div style="font-family:'Quicksand;'">
     <TheHeader></TheHeader>
-    <Nuxt class="custom-min-height tw-bg-gray-50 tw-py-4 tw-text-gray-700 tw-text-lg md:tw-text-xl" />
+    <TheSidebar></TheSidebar>
+    <main>
+      <Nuxt class="md:tw-ml-12 md:tw-pl-8 custom-min-height tw-bg-gray-50 tw-pb-4 tw-text-gray-700 tw-text-lg md:tw-text-xl" />
+    </main>
     <TheFooter></TheFooter>
-  </v-app>
+  </div>
 </template>
 
 <script>
+import TheSidebar from "~/components/templates/TheSidebar.vue";
+
 export default {
+  components: { TheSidebar },
   data() {
     return {};
   },
