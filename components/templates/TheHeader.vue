@@ -35,8 +35,8 @@ export default {
     return {
       menus: [
         { name: "Home", path: "/" },
-        { name: "All Music", path: "/music/" },
-        { name: "Browse", path: "/browse/" }
+        { name: "All Music", path: "/music" },
+        { name: "Browse", path: "/browse" }
       ]
     };
   }
@@ -45,5 +45,5 @@ export default {
 
 <style lang="sass" scoped>
 .navbar-menu .nuxt-link-exact-active
-  @apply tw-bg-gradient-to-br tw-from-white tw-to-pink-100 tw-text-pink-800 tw-rounded tw-shadow
+  @apply tw-text-pink-700 tw-font-medium
 </style>
