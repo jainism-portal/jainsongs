@@ -92,5 +92,6 @@ export default {
 };
 </script>
 
-<style lang="sass" src="~/assets/style/nuxtcontent.sass" scoped>
+<style lang="sass" scoped>
+@import "~/assets/style/nuxtcontent.sass"
 </style>

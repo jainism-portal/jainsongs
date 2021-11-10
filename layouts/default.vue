@@ -1,5 +1,5 @@
 <template>
-  <div style="font-family:'Quicksand;'">
+  <div style="font-family: Quicksand">
     <TheHeader></TheHeader>
     <TheSidebar></TheSidebar>
     <main>
@@ -41,7 +41,8 @@ export default {
 
 <style lang="sass">
 ::selection
-  @apply tw-bg-yellow-200 tw-text-black
+  @apply tw-bg-yellow-200 tw-text-gray-800
+
 body
   .a11y-hide
     clip-path: inset(100%)
