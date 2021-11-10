@@ -53,10 +53,10 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    '@nuxtjs/tailwindcss',
     // '@nuxt/image',
-    '@nuxtjs/vuetify', // https://vuetifyjs.com/en/getting-started/installation/#nuxt-install
-    "@nuxtjs/svg"
+    // '@nuxtjs/vuetify', // https://vuetifyjs.com/en/getting-started/installation/#nuxt-install
+    "@nuxtjs/svg",
+    'nuxt-windicss'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
