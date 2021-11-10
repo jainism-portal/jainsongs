@@ -19,9 +19,23 @@ export default {
   },
   head() {
     return {
-      link: []
+      link: [
+        // https://csswizardry.com/2020/05/the-fastest-google-fonts/
+        {
+          rel: "preload",
+          as: "style",
+          href: "https://fonts.googleapis.com/css2?family=Vesper+Libre:wght@400;500;700&family=Quicksand:wght@300;400;500;600;700&display=swap",
+        },
+        {
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css2?family=Vesper+Libre:wght@400;500;700&family=Quicksand:wght@300;400;500;600;700&display=swap",
+          media: "print",
+          onload: "this.media='all'",
+        },
+        // ...i18nHead.link // Commented because it doesn't add slash
+      ],
     };
-  }
+  },
 };
 </script>
 
@@ -37,4 +51,8 @@ body
     @apply tw-overflow-hidden tw-absolute tw-whitespace-nowrap
   .custom-min-height
     min-height: calc(100vh - 3.5rem)
+
+.custom-style
+  p
+    @apply md:tw-my-4 tw-my-8 tw-leading-8
 </style>
