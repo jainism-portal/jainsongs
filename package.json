@@ -20,7 +20,7 @@
     "@nuxt/image": "^0.4.17",
     "@nuxtjs/svg": "^0.1.12",
     "@sanskrit-coders/sanscript": "^1.1.5",
-    "@silvenon/remark-smartypants": "^1.0.0",
+    "@silvenon/remark-smartypants": "^2.0.0",
     "flat": "^5.0.2",
     "lodash.groupby": "^4.6.0",
     "lodash.kebabcase": "^4.1.1",
